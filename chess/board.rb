@@ -1,7 +1,17 @@
+require_relative "piece.rb"
+require_relative "nullpiece.rb"
 class Board
-    def initialize(null_piece)
-        @rows = Array.new(8){Array.new(8, nil)}
-        @null_piece = null_piece
+
+    attr_reader :rows
+
+    def initialize()
+        @rows = Array.new(8){Array.new(8, NullPiece.instance)}
+        
+    end
+
+    def [](position)
+        row , col = position
+        @rows[row][col]
     end
 
     def set_pieces
@@ -23,15 +33,20 @@ class Board
         row_1, col_1 = start_pos
         row_2, col_2 = end_pos
 
-        if @rows[row_1][col_1] == nil && row_2 >= 0 && row_2 < 8 && col_2 >= 0 && col_2 < 8
-            @rows[start_pos], @rows[end_pos] = @rows[end_pos], @rows[start_pos]
+        if @rows[row_1][col_1].instance_of?(Piece)
+        #check if startPOS is a piece
+
+            if @rows[row_2][col_2].instance_of?(NullPiece) && row_2 >= 0 && row_2 < 8 && col_2 >= 0 && col_2 < 8
+                @rows[row_2][col_2] = @rows[row_1][col_1]
+                @rows[row_1][col_1] = NullPiece.instance
+            end
         end
     end
 
 
 
     private
-    attr_reader :null_piece
+    # attr_reader :null_piece
 end
 
 
