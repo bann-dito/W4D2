@@ -1,11 +1,14 @@
 require_relative 'board.rb'
 
+    attr_reader :pos
+
 class Piece
     def initialize(color, board, pos)
 
         @color = color
         @board = board
         @pos = pos
+        @symbol = ""
         
     end
 

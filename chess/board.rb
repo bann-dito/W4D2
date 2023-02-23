@@ -16,12 +16,14 @@ class Board
 
     def set_pieces
 
-        (0...@rows.length).each do |i|
-            @rows[0][i] = Piece.new
-            @rows[1][i] = Piece.new
-            @rows[6][i] = Piece.new
-            @rows[7][i] = Piece.new
-        end 
+        # (0...@rows.length).each do |i|
+        #     @rows[0][i] = Piece.new("white", self, )
+        #     @rows[1][i] = Piece.new
+        #     @rows[6][i] = Piece.new
+        #     @rows[7][i] = Piece.new
+        # end 
+
+        @rows[1][1] = Queen.new("white", self, [3, 3])
         
     end
 

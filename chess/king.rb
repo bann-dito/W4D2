@@ -1,7 +1,7 @@
-require_relative 'slideable'
-require_relative 'piece.rb'
+require_relative 'stepable'
+require_relative 'piece'
 
-class Queen < Piece
+class King < Piece
     include Slideable
 
     def initialize(color, board, pos)
@@ -9,22 +9,22 @@ class Queen < Piece
     end
 
     
-    def move_dirs
+    def move_diffs
         horizontal_and_vertical_dirs + diagonal_dirs
     end
 
     def symbol
 
         if @color == "white"
-            @symbol = ♕
+            @symbol = ♔
         else
-            @symbol = ♛
+            @symbol = ♚
         end
         
     end
 
     
-:move_dirs
+private :move_diffs
     
 
 end
