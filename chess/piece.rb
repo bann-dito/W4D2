@@ -1,9 +1,36 @@
-class Piece
-    def initialize
+require_relative 'board.rb'
 
-        # @color = color
-        # @board = Board.new
-        # @pos = []
+class Piece
+    def initialize(color, board, pos)
+
+        @color = color
+        @board = board
+        @pos = pos
         
     end
+
+    def to_s
+
+    end
+
+    def empty?
+
+    end
+
+    def valid_moves
+
+    end
+
+    def pos=(val)
+
+    end
+
+    def Symbol
+
+    end
+
+    def move_into_check
+
+    end
+
 end
